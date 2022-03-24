@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+<title> Address Details </title>
+</head>
+<body class="container">
+<h1>Add Address Details </h1>
+<h4>Enter correct details </h4>
+<form action="@{/saveAddress}" th:object="${address}" method="post" class="form needs-validation">
+	 <div class="form-group">
+        <label for="houseName">House Name</label>
+        <input class="form-control" type="text" th:field="*{houseName}" id="houseName" placeholder="House Name">
+        <div  th:if="${#fields.hasErrors('houseName')}" th:errors="*{houseName}"></div>
+    </div>
+    
+     <div class="form-group">
+        <label for="houseNumber">House Number</label>
+        <input class="form-control" type="text" th:field="*{houseNumber}" id="houseNumber" placeholder="House Number">
+        <div class="alert alert-warning" th:if="${#fields.hasErrors('houseNumber')}" th:errors="*{houseNumber}"></div>
+    </div>
+    
+    <div class="form-group">
+        <label for="contactNo">Contact No.</label>
+        <input class="form-control" type="tel" th:field="*{contactNo}" id="contactNo" placeholder="Contact No.">
+        <div class="alert alert-warning" th:if="${#fields.hasErrors('contactNo')}" th:errors="*{contactNo}"></div>
+    </div>
+    
+     <div class="form-group">
+        <label for="colony">Colony</label>
+        <input class="form-control" type="text" th:field="*{colony}" id="colony" placeholder="Colony">
+        <div  th:if="${#fields.hasErrors('colony')}" th:errors="*{colony}"></div>
+    </div>
+    
+    <div class="form-group">
+    <label for="landmark">Landmark</label>
+    <input class="form-control" type="text" th:field="*{landmark}" id="landmark" placeholder="Landmark">
+    <div th:if="${#fields.hasErrors('landmark')}" th:errors="*{landmark}"></div>
+    </div>
+    
+    <div class="form-group">
+    <label for="city">City</label>
+    <input class="form-control" type="text" th:field="*{city}" id="city" placeholder="City">
+    <div th:if="${#fields.hasErrors('city')}" th:errors="*{city}"></div>
+    </div>
+    
+    <div class="form-group">
+    <label for="district">District</label>
+    <input class="form-control" type="text" th:field="*{district}" id="district" placeholder="District">
+    <div th:if="${#fields.hasErrors('district')}" th:errors="*{district}"></div>
+    </div>
+    
+     <div class="form-group">
+    <label for="state">State</label>
+    <input class="form-control" type="text" th:field="*{state}" id="state" placeholder="State">
+    <div th:if="${#fields.hasErrors('state')}" th:errors="*{state}"></div>
+    </div>
+    
+    <div class="form-group">
+    <label for="pincode">Pincode</label>
+    <input class="form-control" type="number" th:field="*{pincode}" id="pincode" placeholder="Pincode">
+    <div th:if="${#fields.hasErrors('pincode)}" th:errors="*{pincode}"></div>
+    </div>
+    
+    <input type="submit"  class="btn btn-primary mb-3" value="Add Address">
+    <a  th:href = "@{/getAddresses}" class=" btn btn-primary btn-md mb-3 float-right"> Address List</a></li>
+    
+    
+</form>
+</body>
+</html>
